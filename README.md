@@ -3,14 +3,36 @@ Pardon my bad English. If you need further assistance, or found some bugs / erro
 
 Task 4 is not provided here as of 17 June 2018, you can modify Task 3 or duplicate Task 3 to work on your Task 4.
 
-## How to use/setup the project
+## How to setup the project (If the packages are not installed)
+* After unzipping the folder (if you have downloaded it) or cloned the project, open `CSCAssignment2018.sln`.
+    * Do not open individual solutions' `*.csproj`, the projects wont be able to run.
 * Ensure you have ASP .NET 4 and above framework installed.
 * Check through the projects. If any project have error, please install the relevant packages for each project.
+Packages Needed: (All Via NuGet)
 ```
-Packages Needed: (All Via NUGET)
- * CORS - Microsoft.AspNet.WebApi.Cors [Task 1 and Task 3 needs it]
- * Stripe - Stripe.net [Task 5]
+ $ CORS - Microsoft.AspNet.WebApi.Cors [Task 1 and Task 3 needs it]
+ $ Stripe - Stripe.net [Task 5]
 ```
+
+* Right click on Task 1 (In this repo, its CSCAssignment2018) and select `Manage NuGet Packages...` and navigate to `Browse`, and search for `WebApi.Cors`. Install the package and accept the defaults. Repeat this for Task 3
+
+* Right click on Task 5, and select `Manage NuGet Packages...` and navigate to `Browse`, and search for `Stripe.net`. Install the package and accept the defaults.
+
+Run the following commands on the Package Manager Console that is built in within Visual Studio (Requires 2012 or later, not available on Mac) if you prefer to use commands instead of the GUI
+```
+$ Install-Package Microsoft.AspNet.WebApi.Cors # Make sure the 'Default Project' is selected on Task 1, and repeat this for Task 3
+$ Install-Package Stripe.net # Make sure the 'Default Project' is Task 5
+```
+
+## How to run the projects individually
+Right click on the project that you want to test / run via `Solution Explorer`, and you have two choices:
+
+1. Select **Set as Startup Project**, and start the project as per normal
+2. Hover over **Debug**, and select **Start new instance**
+
+Example usage when I want to start Task 3:
+* Right-click on Task 3, hover over **Debug**, and select **Start new instance**.
+
 
 ## Task 1
 Things to note - Data Annotation, know how to explain if he asks you . Example range 0,100, what does it mean
