@@ -1,9 +1,26 @@
 # ST0280: Cloud and Service Computing Assignment (CA1)
+Pardon my bad English. If you need further assistance, or found some bugs / errors that is not covered here, or need help to go through the assignment together, please contact me on Telegram!
 
+Task 4 is not provided here as of 17 June 2018, you can modify Task 3 or duplicate Task 3 to work on your Task 4.
+
+## How to use/setup the project
+* Ensure you have ASP .NET 4 and above framework installed.
+* Check through the projects. If any project have error, please install the relevant packages for each project.
+```
+Packages Needed: (All Via NUGET)
+ * CORS - Microsoft.AspNet.WebApi.Cors [Task 1 and Task 3 needs it]
+ * Stripe - Stripe.net [Task 5]
+```
 
 ## Task 1
 Things to note - Data Annotation, know how to explain if he asks you . Example range 0,100, what does it mean
-Screenshots to have: Trigger all possible use case / alternate use case for `GET/POST/PUT/DELETE`, `ModelState` invalid, **underposting**, **overposting** etc.
+Screenshots to have: Trigger all possible use case / alternate use case for `GET/POST/PUT/DELETE`, `ModelState` invalid, **underposting**, **overposting** etc. 
+
+If you do not know what is **underposting** or **overposting**, please consult your classmates... As of now, the codes does not handle overposting. But just explain to JiPX if he asks you to do a overpost, that the request will still pass through. However no requests should pass through (Eg. creating a new product) if the request underposted. (The `Required` field handles this)
+
+Interview:
+There are THREE `ProductsControllers` within this project, differentiated by `ProductsV1Controller`,`ProductsV2Controller`, `ProductsV3Controller`
+`V3` is the combination of `V1` and `V2`, refer to `V3` for the full version. However, some error messages only can be showed by `V1` or `V2`, as `V3` contains codes that handles the error. If JiPX asks you to show him comparison or show error messages, `V1` and `V2` will be your solution.
 
 ## Task 2
 OAuth method - Found in `App_Start/Startup.Auth.cs` [To disable AllowInsecureHttp]
@@ -71,7 +88,7 @@ Screenshots to take: Image upload successfully and able to retrieve the image da
 
 Interview: Prepare to show Stripe Page, AWS S3 Bucket
 
-### Additional Notes / Other Important Things to take note of.
+### Additional Notes / Other Important Things to take note of
 
 There are SOME youtube videos to watch, that could help you better understand what are the missing details or hidden steps to take for the tasks above. Task 4 is relatively tricky.
 
