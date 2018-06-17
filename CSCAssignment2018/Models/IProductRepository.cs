@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CSCAssignment2018.Models
 {
-    public class IProductRepository
+    interface IProductRepository
     {
         IEnumerable<Product> GetAll();
         Product Get(int id);
