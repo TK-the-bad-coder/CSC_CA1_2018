@@ -1,11 +1,11 @@
 # ST0280: Cloud and Service Computing Assignment (CA1)
 
 
-##Task 1
+## Task 1
 Things to note - Data Annotation, know how to explain if he asks you . Example range 0,100, what does it mean
 Screenshots to have: Trigger all possible use case / alternate use case for `GET/POST/PUT/DELETE`, `ModelState` invalid, **underposting**, **overposting** etc.
 
-##Task 2
+## Task 2
 OAuth method - Found in `App_Start/Startup.Auth.cs` [To disable AllowInsecureHttp]
 
 Set Project to **Enable SSL**, can be found under `Properties > Development Server `
@@ -28,7 +28,7 @@ Postman - Normal URL, try to retrieve the page, you should get error messages.
 SSL URL, try to register and login, retrieve the token. (show him how you get the `token` during interview, this should be set in the headers by adding a authorization key field)
 Front-End page results for Failed Login, Illegal Request of data.
 
-##Task 3
+## Task 3
 Follow through the practical
 Things to note:
 Install `CORS` via NuGet. Package Name End with `WebApi.Cors`
@@ -41,7 +41,7 @@ Optional Feature (which is a mock product of Task 4) - Search Talent (no api inv
 
 
 
-##Task 4
+## Task 4
 This is literally Task 3 Optional Feature, with real API controllers doing CRUD, and the securing part is to make use of Task 1 and Task 2 (Data Annotation and SSL)
 
 You may want to provide Create/Update/Delete Talent API View Pages, therefore you also may want to create the respective `Views Controller` for Talent.
@@ -57,7 +57,7 @@ I will provide the CRUD pages at a later time, but do not depend on me to do it 
 
 
 
-##Task 5
+## Task 5
 `STRIPE` - The NuGet package is new, and the code that JiPX provided is not usable with the new `STRIPE` package. Take note of the updated codes found in the backend.
 
 Please put your secret test key in by replacing the `"test_key"` inside the StripeController
@@ -71,7 +71,7 @@ Screenshots to take: Image upload successfully and able to retrieve the image da
 
 Interview: Prepare to show Stripe Page, AWS S3 Bucket
 
-#Additional Notes / Other Important Things to take note of.
+### Additional Notes / Other Important Things to take note of.
 
 There are SOME youtube videos to watch, that could help you better understand what are the missing details or hidden steps to take for the tasks above. Task 4 is relatively tricky.
 
