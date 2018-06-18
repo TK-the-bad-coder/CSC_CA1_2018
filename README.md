@@ -36,7 +36,7 @@ Example usage when I want to start Task 3:
 
 ## Task 1
 Things to note - Data Annotation, know how to explain if he asks you . Example range 0,100, what does it mean
-Screenshots to have: Trigger all possible use case / alternate use case for `GET/POST/PUT/DELETE`, `ModelState` invalid, **underposting**, **overposting** etc. 
+Screenshots to take: Trigger all possible use case / alternate use case for `GET/POST/PUT/DELETE`, `ModelState` invalid, **underposting**, **overposting** etc. 
 
 If you do not know what is **underposting** or **overposting**, please consult your classmates... As of now, the codes does not handle overposting. But just explain to JiPX if he asks you to do a overpost, that the request will still pass through. However no requests should pass through (Eg. creating a new product) if the request underposted. (The `Required` field handles this)
 
@@ -53,19 +53,19 @@ Under Project Properties, ensure SSL is enabled by double clicking on it, else t
 Access the project via SSL URL which is also found right under the SSL Enabled option.
 Step to take : Debug/Run Project (Task 2), it will throw you error. While project is running, change the URL and navigate to the SSL URL, allow the security exception, if any.
 
-If he asks you how to prevent the security exception, or if you want to do it, you may refer to the webpage that teaches you how to setup SSL (not the Microsoft/Azure Page) tutorial, which teaches you how to create your own security certificate.
+If he asks you how to prevent the security exception, or if you want to do it, you may refer to this webpage on [Enable SSL on Visual Studio](http://csharp-video-tutorials.blogspot.com/2016/09/enable-ssl-in-visual-studio-development.html), which also teaches you how to create your own security certificate.
 
 Do a failed request, successful request. Take screenshots for both. You should do via Postman as well, which can be slightly tricky to execute. 
-Make sure you know how to play with the Postman app (For Post man, you need to test with the normal URL to get the error message screenshot too)
+Make sure you know how to play with the Postman app (For Postman, you need to test with the normal URL to get the error message screenshot too)
 
-Study the diagram found in the webpage, just focus on a few things like: key in correct password, server returns token to client, client give token to resource server, server gives back resource, and then there is filter features.. etc etc.
+Study the diagram found in the webpage, just focus on a few things like: key in correct password, server returns `token` to client, client give `token` to resource server, server gives back resource, and then there is filter features.. etc etc.
 
 If he ask where is the javascript logic residing, its in `app.js`, a javascript file that you have created for the project.
 
-Screenshots to have:
+Screenshots to take:
 Postman - Normal URL, try to retrieve the page, you should get error messages.
 SSL URL, try to register and login, retrieve the token. (show him how you get the `token` during interview, this should be set in the headers by adding a authorization key field)
-Front-End page results for Failed Login, Illegal Request of data.
+Front-End page results for failed login, Illegal Request of data.
 
 ## Task 3
 Follow through the practical
@@ -74,7 +74,7 @@ Install `CORS` via NuGet. Package Name End with `WebApi.Cors`
 Create a class file `RequireHttpsAttribute.cs`,put it at the root folder of Task 3.
 Make sure the TalentsController is using the right things
 
-Screenshots - Simple Post Man CRUD functions via TalentsController.
+Screenshots to take: Simple Post Man CRUD functions via TalentsController.
 
 Optional Feature (which is a mock product of Task 4) - Search Talent (no api involved)
 
@@ -94,7 +94,23 @@ Perform CRUD via Postman and front-end client (*need to ownself make, not provid
 
 I will provide the CRUD pages at a later time, but do not depend on me to do it for you as I may not be able to do it before your deadline!
 
+Things to do:
+1. Data Annotations on `Talent` Model
+2. `ModelState.IsValid()` on Controller
+3. `Enable SSL` (With all the steps that you have taken to Enable SSL)
+4. `RequireHttps` (Code has been provided in Task 2 as well, but if you want to know how to explain better, follow this [Enable HTTPS](http://csharp-video-tutorials.blogspot.com/2016/09/aspnet-web-api-enable-https.html) )
 
+Advanced Features [Or basically spoil the market section]:
+This portion below requires you to refer to the websites that is found inside the youtube video's description
+It is good to do them if you have time to do so, as it would make it more complete. However, not doing them does not result you in loss of marks, but whoever has done it may set a benchmark of how to get full marks for Task 4.
+1. Provide a login functionality for Authentication. 
+    - This would serve as a purpose that user must log in first, before they can see the Talents.
+    - Follow this tutorial - [Implementing Basic Authentication](http://csharp-video-tutorials.blogspot.com/2016/10/implementing-basic-authentication-in.html)
+    - You also can take a step up further by implementing Google Login. Somewhere along his practical notes/slides provides this functionality.
+2. Store the data in a local DB within Microsoft Visual Studio instead of using Talent Repository
+    - So that whenever the project runs, you can update / delete talents accordingly, and can still see the same result when you restart the project.
+    - This also allows different users (if you have done Authentication) to see the same data too.
+3. Ensure the error codes are returned correctly. Eg. `401 Unauthorized` etc. 
 
 ## Task 5
 `STRIPE` - The NuGet package is new, and the code that JiPX provided is not usable with the new `STRIPE` package. Take note of the updated codes found in the backend.
@@ -104,17 +120,26 @@ Please put your secret test key in by replacing the `"test_key"` inside the Stri
 
 Screenshots to take: Success page at Stripe etc, front-end page. Postman optional.
 
-`AWS S3 Bucket` - Just make sure your code works..the JavaScript code provided by JiPX confirm works. Just that the UI cui only. Doesn't matter. Make your own if you need to. Remember to provide the relevant credentials. Follow the AWS S3 Bucket Tutorial closely. You can change your `region` accordingly if you selected your own instead of following the practical.
+`AWS S3 Bucket` - ~~Just make sure your code works..the JavaScript code provided by JiPX confirm works. Just that the UI cui only. Doesn't matter. Make your own if you need to. Remember to provide the relevant credentials. Follow the AWS S3 Bucket Tutorial closely. You can change your `region` accordingly if you selected your own instead of following the practical.~~
 
-Screenshots to take: Image upload successfully and able to retrieve the image data / image back out.
+~~Screenshots to take: Image upload successfully and able to retrieve the image data / image back out.~~
 
-Interview: Prepare to show Stripe Page, AWS S3 Bucket
+UPDATE: The crossed out region is for CA2, as confirmed by JiPX. AWS S3 Bucket is just for you to dump talent photos inside. However, you can still provide a webpage for you to demonstrate how you dump the talent photos inside via your own project.
+Interview: Prepare to show Stripe Page, AWS S3 Bucket **\(With talent photos inside)**
 
 ### Additional Notes / Other Important Things to take note of
 
 There are SOME youtube videos to watch, that could help you better understand what are the missing details or hidden steps to take for the tasks above. Task 4 is relatively tricky.
 
-Please be reminded that the project **DOES NOT include** the *loading gif* or a *retry feature* when any of the CRUD feature is loading / failed to load on the front end client. Try to implement this on either Task 5 or Task 4 (Talents API View Pages, which is also not provided in this project)
+UPDATE as of 18 June: I have provided links onto the tasks above that contains the video and the document version of the video, I will put it below again to serve as a reminder that you can refer to them and aid you in explaining to JiPX during the interview!
+
+Please be reminded that the project **DOES NOT include** the *loading gif* or a *retry feature* when any of the CRUD feature is loading / failed to load via AJAX on the front end client. Try to implement this on either Task 5 or Task 4 (Talents API View Pages, which is also not provided in this project)
 
 
 Suggested Youtube Videos: [RequireHttpsAttribute](https://www.youtube.com/watch?v=xIzlD-frEw4&t=179s), [Authentication](https://www.youtube.com/watch?v=BZnmhyZzKgs)
+
+Useful tutorial links that may help you to understand better how the code works / project flows, improving how you can explain yourself during 
+interview:
+* [Implement Basic Authentication & ADO.NET Entity Model](http://csharp-video-tutorials.blogspot.com/2016/10/implementing-basic-authentication-in.html)
+* [Enable Https](http://csharp-video-tutorials.blogspot.com/2016/09/aspnet-web-api-enable-https.html)
+* [Enable SSL](http://csharp-video-tutorials.blogspot.com/2016/09/enable-ssl-in-visual-studio-development.html)
