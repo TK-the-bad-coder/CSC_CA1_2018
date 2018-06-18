@@ -13,5 +13,10 @@ namespace Task5.Controllers
         {
             return View();
         }
+
+        public ActionResult Upload()
+        {
+            return View();
+        }
     }
 }

@@ -11,36 +11,37 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            <label for="txtCardNumber">Card Number *</label>
+            <label class="label" for="txtCardNumber">Card Number *</label>
         </dt>
-
+    
         <dd>
-            <input type="text" id="txtCardNumber" placeholder="Card Number e.g 1234..." />
+            <input class="input is-primary" type="text" id="txtCardNumber" placeholder="Card Number e.g 1234..." />
         </dd>
-
+        <hr />
         <dt>
-            <label for="txtCvc">Cvc *</label>
+            <label class="label" for="txtCvc">Cvc *</label>
         </dt>
 
         <dd>
-            <input type="text" id="txtCvc" placeholder="Security Code e.g 987" />
+            <input class="input is-primary" type="text" id="txtCvc" placeholder="Security Code e.g 987" />
         </dd>
-
+        <hr />
         <dt>
-            <label for="txtExpiryMonth">Expiry Month (MM) *</label>
+            <label class="label" for="txtExpiryMonth">Expiry Month (MM) *</label>
         </dt>
 
         <dd>
-            <input type="text" id="txtExpiryMonth" placeholder="01" />
+            <input class="input is-primary" type="text" id="txtExpiryMonth" placeholder="01" />
         </dd>
-
+        <hr />
         <dt>
-            <label for="txtExpiryYear">Expiry Year (YYYY) *</label>)
+            <label class="label" for="txtExpiryYear">Expiry Year (YYYY) *</label>
         </dt>
 
         <dd>
-            <input type="text" id="txtExpiryYear" placeholder="2015" />
+            <input class="input is-primary" type="text" id="txtExpiryYear" placeholder="2015" />
         </dd>
+        <hr />        
     </dl>
 </div>
 @using (Html.BeginForm("Charge", "StripeV2", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "frmCharge" }))
@@ -52,61 +53,60 @@
         </dt>
 
         <dd>
-            @Html.TextBoxFor(model => model.CardHolderName, new { id = "txtCardHolderName" })
+            @Html.TextBoxFor(model => model.CardHolderName, new { id = "txtCardHolderName", @class = "input is-primary" })
         </dd>
-
+        <hr />
         <dt>
             @Html.DisplayNameFor(model => model.Amount)
-            <input type="number" />
         </dt>
 
         <dd>
-            @Html.TextBoxFor(model => model.Amount, new { id = "txtAmount" })
+            @Html.TextBoxFor(model => model.Amount, new { id = "txtAmount", @class = "input is-primary" })
         </dd>
-
+        <hr />
         <dt>
             @Html.DisplayNameFor(model => model.AddressLine1)
         </dt>
 
         <dd>
-            @Html.TextBoxFor(model => model.AddressLine1, new { id = "txtAddress1" })
+            @Html.TextBoxFor(model => model.AddressLine1, new { id = "txtAddress1", @class = "input is-primary" })
         </dd>
-
+        <hr />
         <dt>
             @Html.DisplayNameFor(model => model.AddressLine2)
         </dt>
 
         <dd>
-            @Html.TextBoxFor(model => model.AddressLine2, new { id = "txtAddress2" })
+            @Html.TextBoxFor(model => model.AddressLine2, new { id = "txtAddress2", @class = "input is-primary" })
         </dd>
-
+        <hr />
         <dt>
             @Html.DisplayNameFor(model => model.AddressCity)
         </dt>
 
         <dd>
-            @Html.TextBoxFor(model => model.AddressCity, new { id = "txtCity" })
+            @Html.TextBoxFor(model => model.AddressCity, new { id = "txtCity", @class = "input is-primary" })
         </dd>
-
+        <hr />
         <dt>
             @Html.DisplayNameFor(model => model.AddressPostcode)
         </dt>
 
         <dd>
-            @Html.TextBoxFor(model => model.AddressPostcode, new { id = "txtPostcode" })
+            @Html.TextBoxFor(model => model.AddressPostcode, new { id = "txtPostcode", @class = "input is-primary" })
         </dd>
-
+        <hr />
         <dt>
             @Html.DisplayNameFor(model => model.AddressCountry)
         </dt>
 
         <dd>
-            @Html.TextBoxFor(model => model.AddressCountry, new { id = "txtCountry" })
+            @Html.TextBoxFor(model => model.AddressCountry, new { id = "txtCountry", @class = "input is-primary" })
         </dd>
     </dl>
     <p>
         @Html.HiddenFor(model => model.Token, new { id = "hdnToken" })
-        @Html.ActionLink("ProcessPayment", "Charge", null, new { id = "btnCharge" })
+        @Html.ActionLink("Process Payment", "Charge", null, new { id = "btnCharge", @class = "button is-primary is-right" })
     </p>
 }
 

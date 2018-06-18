@@ -1,122 +1,49 @@
-﻿<!-- THIS PAGE IS WIP -->
-@*<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
-    <title></title>
-</head>
-<body>
-    <label class="control-label col-md-3" for="photoInput">Photo</label>
-    <div class="col-md-7">
-        <div id="photoDisplay"></div>
-        <input type="button" class="btn btn-primary" value="Edit Photo" id="editButton" />
-        <input type="button" class="btn btn-danger" value="Delete" id="deletePhotoButton" disabled />
-    </div>
-    <div id="hideOnDefault" class="form-group" hidden>
-        <label class="control-label col-md-3" for="fileInput">Select Photo</label>
-        <div class="col-md-9">
-
-            <input id="fileInput" name="fileInput" type="file" class="file input-group-lg" multiple />
+﻿<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+             All Talent Photos Data
+            </h1>
+            <div class="columns is-centered">
+                <div class="column is-narrow">
+                    <div id="objKeys"></div>
+                    <div id="objImgs"></div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div>
-        <input type="button" value="Save" id="saveButton" />
-    </div>
-</body>
-</html>
 
+
+    </section>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
 <script>
-    window.questionId = getIdFromAddressBar();
-    let img_link = "";
+
+    //setup AWS environment
     AWS.config.update({
         accessKeyId: 'francis',
         secretAccessKey: 'secret+sister'
     });
     AWS.config.region = 'pick-your-region';
 
-    //let $getPhoto = $.ajax({
-    //    url: '/API/Questions/GetQuestionPhoto/' + window.questionId,
-    //    method: 'GET',
-    //    contentType: 'application/json',
-    //    cache: false
-    //});
-    //$getPhoto.done(function (data, text, jqXHR) {
-    //    console.log(data);
-    //    if (data.image_link != "") {
-    //        $('#photoDisplay').append(decode(data.image_link));
-    //        $('img').css('width', '100%');
-    //        $('#deletePhotoButton').removeAttr('disabled');
-    //    }
-    //}).fail(function (data, text, jqXHR) {
-    //    //if no data returned and the ajax call is a failure
-    //    $('#photoDisplay').text("No Photo Available");
-    //    $("#editButton").val("Add New Photo");
-    //    $("#deletePhotoButton").hide();
+    let s3BucketName = 'miniboardandcsc';
 
-    //})
-
-
-    //function getIdFromAddressBar() {
-    //    let urlArray = window.location.href.split('/');
-    //    let id = urlArray[urlArray.length - 1];
-    //    return id;
-    //};
-    $('#saveButton').on('click',
-        function () {
-            let bucketName = 'remembertochange'
-            let s3 = new AWS.S3({
-                params: { Bucket: bucketName }
-            });
-            let file = document.getElementById('fileInput').files[0];
-            if (file) {
-                s3.putObject({
-                    Key: file.name,
-                    ContentType: file.type,
-                    Body: file,
-                    ACL: "public-read"
-                },
-                    function (err, data) {
-                        if (data !== null) {
-                            alert("Got it!");
-                        }
-                        else {
-                            alert("Upload failed!");
-                        }
-                    });
-
-            }
+    function listObjs() {
+        let s3 = new AWS.S3({
+            params: { Bucket: s3BucketName }
         });
-
-            //if (0) { //check if the imageUrl is returned null, else it will display the default message of not available.
-            //    $('#photoDisplay').replaceWith($('<img/>').attr('src', "hello"));
-            //    $("<p></p>").insertBefore("#editButton"); //for alignment purposes.
-            //    $('#deletePhotoButton').removeAttr('disabled');
-            //}
-            //else {
-            //    $('#photoDisplay').text("No Photo Available");
-            //    $("#editButton").val("Add New Photo");
-            //    $("#deletePhotoButton").hide();
-            //}
-            //let s3BucketName = 'miniboardandcsc';
-
-            //function listObjs() {
-            //    let s3 = new AWS.S3({
-            //        params: { Bucket: s3BucketName }
-            //    });
-            //    s3.listObjects(function (error, data) {
-            //        if (error === null) {
-            //            let html_keys = 'Object Keys:<br />';
-            //            let html_imgs = '';
-            //            jQuery.each(data.Contents, function (index, obj) {
-            //                html_keys += (index + ': ' + obj.Key + '<br />');
-            //                html_imgs += "<img src='" + "https://s3-" + AWS.config.region + ".amazonaws.com/"
-            //                    + s3BucketName + "/" + obj.Key + "'/><br/>";
-            //            });
-            //            $("#objKeys").html(html_keys);
-            //            $("#objImgs").html(html_imgs);
-            //        } else { console.log(error); }
-            //    });
-            //}
-</script>*@
+        s3.listObjects(function (error, data) {
+            if (error === null) {
+                let html_keys = 'Object Keys:<br />';
+                let html_imgs = '';
+                jQuery.each(data.Contents, function (index, obj) {
+                    html_keys += (index + ': ' + obj.Key + '<br />');
+                    html_imgs += "<img src='" + "https://s3-" + AWS.config.region + ".amazonaws.com/"
+                        + s3BucketName + "/" + obj.Key + "'/><br/>";
+                });
+                $("#objKeys").html(html_keys);
+                $("#objImgs").html(html_imgs);
+            } else { console.log(error); }
+        });
+    }
+</script>
