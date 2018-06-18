@@ -125,6 +125,7 @@ Screenshots to take: Success page at Stripe etc, front-end page. Postman optiona
 ~~Screenshots to take: Image upload successfully and able to retrieve the image data / image back out.~~
 
 UPDATE: The crossed out region is for CA2, as confirmed by JiPX. AWS S3 Bucket is just for you to dump talent photos inside. However, you can still provide a webpage for you to demonstrate how you dump the talent photos inside via your own project.
+
 Interview: Prepare to show Stripe Page, AWS S3 Bucket **\(With talent photos inside)**
 
 ### Additional Notes / Other Important Things to take note of
